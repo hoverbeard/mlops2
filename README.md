@@ -4,7 +4,7 @@ This repository is part of Project 2 of the HSLU MLOPS module. It contains Docke
 
 ## Quick Start Guide
 
-### 1. Run the Pre-Built Docker Images
+### Option 1: Run the Pre-Built Docker Images
 
 If you want to run the pre-built images directly without building them yourself, use the following commands:
 
@@ -20,7 +20,7 @@ docker pull philhova/mlops2:1.0-gpu
 docker run --gpus all philhova/mlops2:1.0-gpu --wandb_key <your_wandb_key>
 ```
 
-### 2. Build the Docker Images Locally (Optional)
+### Option 2: Build the Docker Images Locally First
 
 If you prefer to build the images locally, first clone this repository:
 
