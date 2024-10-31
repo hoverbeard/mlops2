@@ -46,7 +46,9 @@ The built images can then be run with `docker run` as above.
 
 ## Usage and Arguments
 
-The `main.py` script accepts several arguments to customize the training configuration, including hyperparameters. Note that the hyperparameter values default to the best configuration recorded in Project 1 and require around 10-15 GB of virtual memory with `batch_size 256`. Here is a list of all the available arguments:
+The `main.py` training script accepts several arguments to customize the training configuration, including hyperparameters. Note that the hyperparameter values default to the best configuration recorded in Project 1 and require around 10-15 GB of virtual memory with `batch_size 256`. 
+
+Here is a list of all the available arguments:
 
 | Argument               | Type   | Default                     | Description                                    |
 |------------------------|--------|-----------------------------|------------------------------------------------|
