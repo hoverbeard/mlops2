@@ -2,6 +2,10 @@
 
 This repository is part of Project 2 of the HSLU MLOPS module. It contains Dockerized configuration to finetune distilbert-base-uncased on MRPC, with both CPU-only and GPU-enabled Docker images available.  
 
+## Prerequisites
+
+Make sure Docker is installed on your system. You can download and follow the installation instructions for Docker [here](https://docs.docker.com/get-docker/).
+
 ## Quick Start Guide
 
 ### Option 1: Run the Pre-Built Docker Images
