@@ -46,7 +46,7 @@ docker build -f Dockerfile_gpu -t yournamespace/mlops2:1.0-gpu .
 ```
 > **Note**: Replace `yournamespace` with your Docker Hub username if you plan to push the images to your Docker Hub account.
 
-The built images can then be run with `docker run` as above.
+The built images can then be run with `docker run` as in Option 1.
 
 ## Usage and Arguments
 
