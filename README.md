@@ -14,8 +14,8 @@ If you want to run the pre-built images directly without building them yourself,
 
 #### For CPU-only:
 ```bash
-docker pull philhova/mlops2:1.0-cpu
-docker run philhova/mlops2:1.0-cpu --wandb_key <your_wandb_key>
+docker pull philhova/mlops2:1.1-cpu
+docker run philhova/mlops2:1.1-cpu --wandb_key <your_wandb_key>
 ```
 
 #### For GPU (assuming CUDA-enabled hardware):
@@ -37,7 +37,7 @@ You can then build the images yourself by using the provided Dockerfiles:
 
 #### Build the CPU-only Image:
 ```bash
-docker build -f Dockerfile_cpu -t yournamespace/mlops2:1.0-cpu .
+docker build -f Dockerfile_cpu -t yournamespace/mlops2:1.1-cpu .
 ```
 
 #### Build the GPU Image:
@@ -73,7 +73,7 @@ Here is a list of all the available arguments:
 Below is an example command showing how to run the Docker container with custom arguments:
 
 ```bash
-docker run philhova/mlops2:1.0-cpu \
+docker run philhova/mlops2:1.1-cpu \
     --wandb_key <your_wandb_key> \
     --batch_size 128 \
     --lr 0.0001382 \
