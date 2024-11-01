@@ -20,8 +20,8 @@ docker run philhova/mlops2:1.0-cpu --wandb_key <your_wandb_key>
 
 #### For GPU (assuming CUDA-enabled hardware):
 ```bash
-docker pull philhova/mlops2:1.0-gpu
-docker run --gpus all philhova/mlops2:1.0-gpu --wandb_key <your_wandb_key>
+docker pull philhova/mlops2:1.1-gpu
+docker run --gpus all philhova/mlops2:1.1-gpu --wandb_key <your_wandb_key>
 ```
 
 ### Option 2: Build the Docker Images Locally First
@@ -42,7 +42,7 @@ docker build -f Dockerfile_cpu -t yournamespace/mlops2:1.0-cpu .
 
 #### Build the GPU Image:
 ```bash
-docker build -f Dockerfile_gpu -t yournamespace/mlops2:1.0-gpu .
+docker build -f Dockerfile_gpu -t yournamespace/mlops2:1.1-gpu .
 ```
 > **Note**: Replace `yournamespace` with your Docker Hub username if you plan to push the images to your Docker Hub account.
 
