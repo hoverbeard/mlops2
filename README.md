@@ -14,14 +14,14 @@ If you want to run the pre-built images directly without building them yourself,
 
 #### For CPU-only:
 ```bash
-docker pull philhova/mlops2:1.1-cpu
-docker run philhova/mlops2:1.1-cpu --wandb_key <your_wandb_key>
+docker pull philhova/mlops2:1.0-cpu
+docker run philhova/mlops2:1.0-cpu --wandb_key <your_wandb_key>
 ```
 
 #### For GPU (assuming CUDA-enabled hardware):
 ```bash
-docker pull philhova/mlops2:1.1-gpu
-docker run --gpus all philhova/mlops2:1.1-gpu --wandb_key <your_wandb_key>
+docker pull philhova/mlops2:1.0-gpu
+docker run --gpus all philhova/mlops2:1.0-gpu --wandb_key <your_wandb_key>
 ```
 
 ### Option 2: Build the Docker Images Locally First
@@ -37,12 +37,12 @@ You can then build the images yourself by using the provided Dockerfiles:
 
 #### Build the CPU-only Image:
 ```bash
-docker build -f Dockerfile_cpu -t yournamespace/mlops2:1.1-cpu .
+docker build -f Dockerfile_cpu -t yournamespace/mlops2:1.0-cpu .
 ```
 
 #### Build the GPU Image:
 ```bash
-docker build -f Dockerfile_gpu -t yournamespace/mlops2:1.1-gpu .
+docker build -f Dockerfile_gpu -t yournamespace/mlops2:1.0-gpu .
 ```
 > **Note**: Replace `yournamespace` with your Docker Hub username if you plan to push the images to your Docker Hub account.
 
@@ -50,7 +50,7 @@ The built images can then be run with `docker run` as in Option 1.
 
 ## Usage and Arguments
 
-The `main.py` training script accepts several arguments to customize the training configuration, including hyperparameters. Note that the hyperparameter values default to the best configuration recorded in Project 1 and require around 10-15 GB of virtual memory with `batch_size 256`. 
+The `main.py` training script accepts several arguments to customize the training configuration, including hyperparameters. Note that the hyperparameter values default to the best configuration recorded in Project 1 and require around 10-15 GB of virtual memory with `batch_size 256` (if you get an out-of-memory error, decrease the batch size and accordingly adjust batch-size-dependent parameters like learning rate and warmup steps). 
 
 Here is a list of all the available arguments:
 
@@ -60,7 +60,7 @@ Here is a list of all the available arguments:
 | `--project_name`       | str    | `"MLOPS_Project2"`          | WandB project name                             |
 | `--saved_model_dirpath`| str    | `"./saved_models/"`         | Directory path to save trained models          |
 | `--batch_size`         | int    | `256`                       | Batch size for training                        |
-| `--accumulate_grad_batches` | int | `1`                      | Number of gradient accumulation steps          |
+| `--accumulate_grad_batches` | int | `1`                      | Number of gradient accumulation steps (automatically scales the learning rate by that number as well)         |
 | `--weight_decay`       | float  | `0.0`                       | Weight decay for the optimizer                 |
 | `--warmup_steps`       | int    | `3`                         | Number of warmup steps                         |
 | `--lr`                 | float  | `0.0002763964247502885`     | Learning rate                                  |
@@ -73,10 +73,10 @@ Here is a list of all the available arguments:
 Below is an example command showing how to run the Docker container with custom arguments:
 
 ```bash
-docker run philhova/mlops2:1.1-cpu \
+docker run philhova/mlops2:1.0-cpu \
     --wandb_key <your_wandb_key> \
     --batch_size 128 \
     --lr 0.0001382 \
-    --epochs 5 \
+    --warmup_steps 6 \
     --saved_model_dirpath "/path/to/save/models"
 ```
